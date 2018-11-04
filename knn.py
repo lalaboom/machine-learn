@@ -19,8 +19,8 @@ def classify(input_data, dataset,label,k):
     sub_data = tile(input_data,(datalen,1))
     diff = dataset - sub_data
     sqdiff = diff**2
-    dist = sqdiff.sum(axis=1)
-    dist = dist**0.5
+    dist = sqdiff.sum(axis=1) #各种特征的平方和
+    dist = dist**0.5  #计算各种特征的距离
     #获取前K个值,距离最小的
     dist = dist.argsort()
     datadist = dist[:k]
