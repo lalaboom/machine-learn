@@ -33,7 +33,9 @@ def classify(input_data, dataset,label,k):
 if __name__ == '__main__':
     testdata = [0.5,200.0,50.0]
     data, label = createdata()
+    #训练数据归一化
     dataset, mindata, rangedata = normalize_dataset(data)
+    #测试数据归一化
     test_data_res = normalize_data(testdata,mindata, rangedata)
     print(classify(test_data_res, dataset,label,12))
 
