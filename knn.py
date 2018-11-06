@@ -6,14 +6,20 @@ def createdata():
     data=array([[1.0,200.0,30.0],[0.9,300.0,20.0],[0.8,600.0,20.0],[0.7,400.0,48.0]])
     label = array(['A','A','B','B'])
     return data,label
+
+#归一化训练数据
 def normalize_dataset(dataset):
     mindata = dataset.min(0)
     maxdata=dataset.max(0)
     rangedata = maxdata - mindata
     dataset = (dataset - mindata)/rangedata
     return dataset,mindata,rangedata
+
+#归一化测试数据
 def normalize_data(data,mindata, rangedata):
     return (data - mindata)/rangedata
+
+#分类
 def classify(input_data, dataset,label,k):
     datalen =dataset.shape[0]
     sub_data = tile(input_data,(datalen,1))

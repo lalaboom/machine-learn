@@ -11,6 +11,7 @@ def _calEntropy(dataSet):
         entropy -= p*log(p,2)
     return entropy
 
+#计算某个特征的熵
 def _calFeatureEnt(dataSet, index):
     fv = dataSet[:,index]
     total = float(dataSet.shape[0])
